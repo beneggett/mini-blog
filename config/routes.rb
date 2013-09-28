@@ -1,7 +1,9 @@
 MiniBlog::Application.routes.draw do
+  resources :posts
+
+
   # root :to => 'home#index'
   root to: 'home#index'
-  get "home-page-for-cool-people", to: 'home#index', as: :home_index
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
