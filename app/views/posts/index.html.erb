@@ -1,29 +1,13 @@
-<h1>Listing posts</h1>
-
-<table>
-  <tr>
-    <th>Title</th>
-    <th>Body</th>
-    <th>Author name</th>
-    <th>Published at</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+<h1>Our blog posts <small> (<%= @posts.count %>)</small></h1>
 
 <% @posts.each do |post| %>
-  <tr>
-    <td><%= post.title %></td>
-    <td><%= post.body %></td>
-    <td><%= post.author_name %></td>
-    <td><%= post.published_at %></td>
-    <td><%= link_to 'Show', post %></td>
-    <td><%= link_to 'Edit', edit_post_path(post) %></td>
-    <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
+  <h2><%= post.title.titleize %></h2>
+  <h4><%= post.author_name %> - <%= time_tag(post.published_at ) %></h4>
+  <p><%= post.body.html_safe %></p>
+  <%= link_to 'Show', post %>
+  <%= link_to 'Edit', edit_post_path(post) %>
+  <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %>
 <% end %>
-</table>
 
-<br />
 
 <%= link_to 'New Post', new_post_path %>

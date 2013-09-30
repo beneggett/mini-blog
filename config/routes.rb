@@ -1,6 +1,13 @@
 MiniBlog::Application.routes.draw do
   resources :posts
 
+  # get '/posts', to: "posts#index", as: :posts
+  # get '/posts/new', to: "posts#new", as: :new_post
+  # post '/posts', to: "posts#create" #, as: :create_post
+  # get '/posts/:id', to: "posts#show", as: :post
+  # get '/posts/:id/edit', to: "posts#edit", as: :edit_post
+  # put '/posts/:id/update', to: "posts#update" #, as: :update_post
+  # delete '/posts/:id', to: "posts#destroy" #, as: :delete_post
 
   # root :to => 'home#index'
   root to: 'home#index'
