@@ -1,3 +1,4 @@
 class Post < ActiveRecord::Base
-  attr_accessible :author_name, :body, :published_at, :title
+  belongs_to :author  
+  attr_accessible :body, :published_at, :title, :author_id
 end

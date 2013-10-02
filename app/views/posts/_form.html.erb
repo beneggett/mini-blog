@@ -21,8 +21,9 @@
     <%= f.text_area :body %>
   </div>
   <div class="field">
-    <%= f.label :author_name %><br />
-    <%= f.text_field :author_name %>
+    <%= f.label :author_id %><br />
+    <% all_authors = Author.all.collect {|author| [ author.username, author.id ] }%>
+    <%= f.select :author_id, all_authors, include_blank:  true  %>
   </div>
   <div class="field">
     <%= f.label :published_at %><br />

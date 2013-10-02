@@ -29,6 +29,13 @@
   <b>Twitter:</b>
   <%= @author.twitter %>
 </p>
+<hr />
+<h3> <%= @author.first_name%>'s posts</h3>
+<% @author.posts.each do |post| %>
+  <h2><%= link_to post.title.titleize, post_path(post) %></h2>
+  <h4><%= time_tag(post.published_at ) %></h4>
+  <p><%= simple_format(post.body) %></p>
+<% end %>
 
 
 <%= link_to 'Edit', edit_author_path(@author) %> |
