@@ -1,4 +1,7 @@
 MiniBlog::Application.routes.draw do
+  resources :authors
+
+
   resources :posts
 
   # get '/posts', to: "posts#index", as: :posts
