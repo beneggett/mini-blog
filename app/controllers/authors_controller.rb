@@ -44,6 +44,7 @@ class AuthorsController < ApplicationController
 
     respond_to do |format|
       if @author.save
+        session[:author_id] = @author.id
         format.html { redirect_to @author, notice: 'Author was successfully created.' }
         format.json { render json: @author, status: :created, location: @author }
       else
