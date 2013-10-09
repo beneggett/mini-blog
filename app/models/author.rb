@@ -11,6 +11,7 @@ class Author < ActiveRecord::Base
   # length
   validates :bio, length: { in: 30..500 }, allow_blank: true
   # format
+  validates :password, :password_confirmation, presence: true, on: :create
   validates :username, presence: true, uniqueness: true
   validates :email, presence: true,
                     uniqueness: true,

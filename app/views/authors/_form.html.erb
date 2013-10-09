@@ -1,49 +1,13 @@
-<%= form_for(@author) do |f| %>
-  <% if @author.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@author.errors.count, "error") %> prohibited this author from being saved:</h2>
+<%= simple_form_for @author do |f| %>
+  <%= f.error_notification %>
+  <%= f.input :first_name, label: 'First', placeholder: "Your first name" %>
+  <%= f.input :last_name, placeholder: "Your last name" %>
+  <%= f.input :username, placeholder: "Create a username" %>
+  <%= f.input :bio, input_html: {rows: 3}, placeholder: "Please tell your readers more about yourself..." %>
+  <%= f.input :email, placeholder: 'email@example.com' %>
+  <%= f.input :twitter, placeholder: "@username", hint: "This is your twitter handle" %>
+  <%= f.input :password, hint: "Must be at least 6 characters", placeholder: 'Create a password' %>
+  <%= f.input :password_confirmation, placeholder: 'Confirm your password' %>
 
-      <ul>
-      <% @author.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :first_name %><br />
-    <%= f.text_field :first_name %>
-  </div>
-  <div class="field">
-    <%= f.label :last_name %><br />
-    <%= f.text_field :last_name %>
-  </div>
-  <div class="field">
-    <%= f.label :username %><br />
-    <%= f.text_field :username %>
-  </div>
-  <div class="field">
-    <%= f.label :bio %><br />
-    <%= f.text_area :bio %>
-  </div>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.text_field :email %>
-  </div>
-  <div class="field">
-    <%= f.label :twitter %><br />
-    <%= f.text_field :twitter %>
-  </div>
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password %>
-  </div>  
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation %>
-  </div>    
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  <%= f.button :submit %>
 <% end %>
