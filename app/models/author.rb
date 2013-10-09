@@ -1,7 +1,9 @@
 class Author < ActiveRecord::Base
+  has_secure_password
+
   has_many :posts
   has_many :comments, through: :posts
-  attr_accessible :bio, :email, :first_name, :last_name, :twitter, :username
+  attr_accessible :bio, :email, :first_name, :last_name, :twitter, :username, :password, :password_confirmation
   # presence
   validates :first_name, :last_name, presence: true
   # uniqueness
