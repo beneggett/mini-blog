@@ -1,11 +1,7 @@
 MiniBlog::Application.routes.draw do
-  resources :comments
+  get "sessions/new"
 
-
-  resources :authors
-
-
-  resources :posts
+  resources :posts, :comments, :authors, :sessions
 
   # get '/posts', to: "posts#index", as: :posts
   # get '/posts/new', to: "posts#new", as: :new_post
