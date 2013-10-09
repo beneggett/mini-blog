@@ -10,9 +10,21 @@
       <%= link_to "All Authors", authors_path %>
     </li>
     <div class='pull-right'>
-      <li>
-        <%= link_to 'Sign Up', new_author_path %>    
-      </li>
+      <% if current_author %>
+        <li>
+          Logged in as <%= link_to current_author.username, author_path(current_author) %> | 
+          <%= link_to "Sign Out", signout_path, method: :delete %>
+
+        </li>
+      <% else %>
+        <li>
+          <%= link_to 'Sign Up', signup_path %> |
+           
+        </li>
+        <li>
+          <%= link_to 'Sign In', signin_path %>    
+        </li>        
+      <% end %>
     </div>
   </ul>
 </nav>
