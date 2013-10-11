@@ -1,0 +1,19 @@
+$max: 359;
+
+@for $i from 0 to $max {
+  .rainbow-#{$i} {
+    position: absolute;
+    z-index: 0;
+    $offsetY: (100% / $max) * $i;
+    left: $offsetY;
+    top: 0;
+    bottom: 0;
+    background: hsl($i, 100%, 50%);
+    width: 1%;
+  }
+}
+
+.content{
+  z-index: 10;
+  position: absolute;
+}

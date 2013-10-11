@@ -1,3 +1,16 @@
+@mixin white-shadow{
+  text-shadow: 0px 0px 10px #fff;
+  color: #1d1d1d;
+}
+@mixin rounded($amount){
+  border-radius: $amount;
+}
+.content{
+  background: white;
+  padding: 20px;
+  @include rounded(10px);
+}
+
 body {
   background-color: #fff;
   color: #333;
@@ -5,8 +18,22 @@ body {
   font-size: 13px;
   line-height: 18px;
 }
+h1, h2{
+  @include white-shadow;
+  color: $blue;
+}
+
+h3{
+  @extend h1;
+  font-size: 14px;
+}
+h4{
+  @extend h3;
+  color: $red;
+}
 
 p, ol, ul, td {
+  @include white-shadow;
   font-family: verdana, arial, helvetica, sans-serif;
   font-size: 13px;
   line-height: 18px;
@@ -17,11 +44,9 @@ pre {
   padding: 10px;
   font-size: 11px;
 }
-
 a {
-  color: #000;
+  @include white-shadow;
   &:visited {
-    color: #666;
   }
   &:hover {
     color: #fff;

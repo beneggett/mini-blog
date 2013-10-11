@@ -7,11 +7,18 @@
     <%= csrf_meta_tags %>
   </head>
   <body>
-  <%= render 'shared/navigation' %>
-  <% flash.each do |name, msg| %>
-    <%= content_tag :div, msg, id: "flash_#{name}" %>
-  <% end %>
-  <%= yield %>
+  <div id='rainbow-pride'>
+    <% for i in 0..359 do  %>
+      <div class="rainbow-<%= i %>"></div>
+    <% end %>
+  </div>
+  <div class='content'>
+    <%= render 'shared/navigation' %>
+    <% flash.each do |name, msg| %>
+      <%= content_tag :div, msg, id: "flash_#{name}" %>
+    <% end %>
+    <%= yield %>
+  </div>
 
   </body>
 </html>
